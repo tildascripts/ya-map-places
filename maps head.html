@@ -1,0 +1,344 @@
+<style type="text/css">
+    #rec336796038 * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    #rec336796038 .t396__artboard {
+        height: unset!important;
+        padding-top: 50px!important;
+        padding-bottom: 50px!important;
+        min-height: 500px;
+    }
+    
+    .mapcontainer {
+        position: relative!important;
+        top: 0!important;
+        height: 700px!important;
+        display: flex;
+        box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.15);
+    }
+    @media (max-width: 959px) {
+        .mapcontainer {
+            flex-direction: column;
+            height: unset!important;
+        }
+    }
+
+    .mapwrapper {
+        background-color: lightgray;
+        flex-grow: 1;
+        overflow: hidden;
+    }
+    @media (max-width: 959px) {
+        .mapwrapper {
+            flex-grow: unset;
+            width: 100%;
+            height: 300px;
+            flex: none;
+        }
+    }
+
+    .controlswrapper {
+        position: relative;
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        background-color: white;
+        padding: 45px 30px 45px 40px;
+    }
+    @media (max-width: 959px) {
+        .controlswrapper {
+            padding: 25px 30px;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 390px;
+        }
+    }
+    @media (max-width: 639px) {
+        .controlswrapper {
+            height: unset;
+        }
+    }
+
+    .menubutton {
+        position: relative;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        cursor: pointer;
+        transition: all .2s ease-out;
+    }
+    @media (max-width: 959px) {
+        .menubutton {
+            width: 50%;
+            height: 25%;
+        }
+    }
+    @media (max-width: 639px) {
+        .menubutton {
+            width: 100%;
+            height: unset;
+            margin-bottom: 16px;
+        }
+        .menubutton:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .menubutton.disabled {
+        opacity: .6;
+        filter: saturate(0.6);
+    }
+    .menubutton img {
+        width: 50px;
+        height: 50px;
+        flex: none;
+        margin-right: 20px;
+    }
+    @media (max-width: 639px) {
+        .menubutton img {
+            width: 40px;
+            height: 40px;
+            margin-right: 18px;
+        }
+    }
+    .menubutton div {
+        font-family: "FuturaPT", Arial, sans-serif;
+        font-size: 20px;
+        color: #252C06;
+    }
+    @media (max-width: 639px) {
+        .menubutton div {
+            font-size: 18px;
+        }
+    }
+</style>
+
+<script type="text/javascript">
+function ymapsInit() {
+    $(document).ready(() => {
+        const getImage = dataElemId => {
+            const wrapper = document.querySelector(`[data-elem-id='${dataElemId}']`)
+            const img = wrapper.getElementsByTagName("img")[0]
+            const src = img.src
+            wrapper.remove()
+            return src
+        }
+    
+        const mapObjects = [
+            {
+                name: "Храмы и церкви",
+                img: getImage("1626516076149"),
+                points: [
+                    {
+                        cords: [55.751574, 37.573856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                    {
+                        cords: [55.651574, 37.673856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                ],
+            },
+            {
+                name: "Супермаркеты",
+                img: getImage("1626516076185"),
+                points: [
+                    {
+                        cords: [55.751574, 37.773856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                    {
+                        cords: [55.851574, 37.573856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                ],
+            },
+            {
+                name: "Дом культуры",
+                img: getImage("1626516076154"),
+                points: [
+                    {
+                        cords: [55.351574, 37.273856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                    {
+                        cords: [55.451574, 37.973856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                ],
+            },
+            {
+                name: "Кафе и рестораны",
+                img: getImage("1626516076160"),
+                points: [
+                    {
+                        cords: [55.151574, 37.673856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                    {
+                        cords: [55.651574, 37.773856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                ],
+            },
+            {
+                name: "Спорт",
+                img: getImage("1626516076166"),
+                points: [
+                    {
+                        cords: [55.851574, 37.973856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                    {
+                        cords: [55.251574, 37.273856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                ],
+            },
+            {
+                name: "Детские сады",
+                img: getImage("1626516076172"),
+                points: [
+                    {
+                        cords: [55.351574, 37.473856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                    {
+                        cords: [55.551574, 37.773856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                ],
+            },
+            {
+                name: "Почта",
+                img: getImage("1626516076176"),
+                points: [
+                    {
+                        cords: [55.751574, 37.273856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                    {
+                        cords: [55.751574, 37.873856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                ],
+            },
+            {
+                name: "Школы",
+                img: getImage("1626516076181"),
+                points: [
+                    {
+                        cords: [55.951574, 37.973856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                    {
+                        cords: [55.151574, 37.173856],
+                        hintContent: "Тест при наведении",
+                        balloonContent: "Текст при нажатии",
+                    },
+                ],
+            },
+        ]
+    
+        const container = document.querySelector("[data-elem-id='1626513646725']")
+        container.classList.add("mapcontainer")
+        container.innerHTML = ""
+        container.style.display = "flex"
+        container.style.position = "absolute"
+    
+        const mapwrapper = document.createElement("div")
+        mapwrapper.classList.add("mapwrapper")
+        const controlswrapper = document.createElement("div")
+        controlswrapper.classList.add("controlswrapper")
+    
+        container.appendChild(mapwrapper)
+        container.appendChild(controlswrapper)
+    
+        mapObjects.forEach(mapObject => {
+            const menuButtonHTML = `
+                <div class="menubutton" data-name="${mapObject.name}">
+                    <img src='${mapObject.img}' alt="">
+                    <div>${mapObject.name}</div>
+                </div>
+            `
+            controlswrapper.innerHTML += menuButtonHTML
+        })
+    
+        ymaps.ready(function () {
+            const myMap = new ymaps.Map(mapwrapper, {
+                center: [55.751574, 37.573856],
+                zoom: 9
+            }, {
+                searchControlProvider: "yandex#search",
+                autoFitToViewport: "always",
+            })
+    
+            // Создаём макет содержимого.
+            //const MyIconContentLayout = ymaps.templateLayoutFactory.createClass("<div style='color: #FFFFFF; font-weight: bold;' id='ff'>$[properties.iconContent]</div>")
+            
+            mapObjects.forEach(mapObject => {
+                mapObject.isShown = true
+                mapObject.points.forEach(point => {
+                    point.placemark = new ymaps.Placemark(point.cords, {
+                        hintContent: point.hintContent,
+                        balloonContent: point.balloonContent,
+                    }, {
+                        iconLayout: "default#image",
+                        iconImageHref: mapObject.img,
+                        iconImageSize: [46, 46],
+                        //iconImageOffset: [-5, -38]
+                    })
+                    myMap.geoObjects.add(point.placemark)
+                })
+            })
+    
+    
+            Array.from(document.getElementsByClassName("menubutton")).forEach(el => {
+                el.addEventListener("click", e => {
+                    const target = e.currentTarget
+                    const mapObjectName = target.getAttribute("data-name")
+                    const mapObject = mapObjects.find(item => item.name === mapObjectName)
+                    if (mapObject.isShown) {
+                        mapObject.isShown = false
+                        target.classList.add("disabled")
+                        mapObject.points.forEach(point => {
+                            myMap.geoObjects.remove(point.placemark)
+                        })
+                    }
+                    else {
+                        mapObject.isShown = true
+                        target.classList.remove("disabled")
+                        mapObject.points.forEach(point => {
+                            myMap.geoObjects.add(point.placemark)
+                        })
+                    }
+                })
+            })
+        })
+    })
+}
+</script>
+<script src="https://api-maps.yandex.ru/2.1/?onload=ymapsInit&lang=ru_RU&apikey=8bbfac81-b981-4f2a-a197-3dcc471cc456" type="text/javascript"></script>
